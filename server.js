@@ -6,7 +6,7 @@ const app = express();
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/notefix'));
 app.get('/*', function(req,res) {
-   res.sendFile(path.join(__dirname+'/dist/notefix/index.html'));
+   res.sendFile('index.html', {root: 'dist/notefix/'});
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
